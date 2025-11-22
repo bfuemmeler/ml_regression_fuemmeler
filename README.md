@@ -1,4 +1,7 @@
-# Machine Learning Final 
+##  Machine Learning Final 
+## C:\Repos\ml_regression_fuemmeler\notebook\regression_fuemmeler.ipynb
+## 
+
 
 > Use this repo to start a professional Python project.
 
@@ -15,21 +18,27 @@
 
 ## About this Repository
 
-Starter files for the example labs:
-
-- notebooks/example01 folder
-- notebooks/example02 folder
+Github repository for Module 6: Final Project on Regression Analysis:
+https://github.com/bfuemmeler/ml_regression_fuemmeler
 
 ## Folders for Projects
 
-Each project will be completed in its own folder.
+Notebook folder containing the dataset and project file:
+https://github.com/bfuemmeler/ml_regression_fuemmeler/tree/main/notebook
 
-- notebooks/project01 folder:
-  - ml01.ipynb - COMPLETE THIS
-  - ml01.py - working script with just the code
-  - README.md - instructions - modify this to present your lab project
+## Other Files to support this Project
 
----
+.gitignore
+https://github.com/bfuemmeler/ml_regression_fuemmeler/blob/main/.gitignore
+
+Project Summary:
+https://github.com/bfuemmeler/ml_regression_fuemmeler/blob/main/PROJECT_SUMMARY.md
+
+Peer Review:
+https://github.com/bfuemmeler/ml_regression_fuemmeler/blob/main/peer_review.md
+
+README:
+https://github.com/bfuemmeler/ml_regression_fuemmeler/blob/main/README.md
 
 ## WORKFLOW 1. Set Up Machine
 
@@ -136,13 +145,10 @@ uv run mkdocs serve
 
 ### 3.4 Execute
 
-This project includes demo code.
-Run the demo Python modules to confirm everything is working.
-
 In VS Code terminal, run:
 
 ```shell
-uv run python notebooks/project01/ml01.py
+uv run python notebook\regression_fuemmeler.ipynb
 ```
 
 A new window with charts should appear. Close the window to finish the execution. 
@@ -168,7 +174,7 @@ Anytime we make working changes to code is a good time to git add-commit-push to
 
 ```shell
 git add .
-git commit -m "describe your change in quotes"
+git commit -m "update README"
 git push -u origin main
 ```
 
