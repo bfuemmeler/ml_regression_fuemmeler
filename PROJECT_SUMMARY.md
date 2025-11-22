@@ -1,112 +1,85 @@
-# Project Summary: Binary Classification Model
+# Project Summary: Regression Analysis 
 
-This document summarizes the key decisions, assumptions, and findings for this binary classification project.  
+This document summarizes the key decisions, assumptions, and findings for this regression analysis project. 
 Complete each section clearly and professionally.
 When you modify this document, rename the title to: PROJECT_SUMMARY.md. 
 
 ## Problem Definition (Front Matter)
 
-- Project Title:
-- Author/Alias:
+- Project Title: Regression Analysis- Predicting Fuel Efficiency
+- Author/Alias: Brenda Fuemmeler
+  
 - Brief description of the business or analytical problem:
+  The goal of this project is to predict a vehicle’s fuel efficiency (miles per gallon) using key characteristics such as engine specifications and weight. Fuel efficiency is a critical metric in the automotive industry due to rising fuel costs, regulatory requirements, and consumer demand for economical vehicles. By understanding how engine size, horsepower, weight, and other attributes influence mpg, organizations can make more informed decisions about vehicle design, manufacturing, and environmental compliance.
+
 - What decision or action the model is intended to support:
+  The model is designed to support auto industry stakeholders in their evaluation of how design choices impact fuel consumption and identify the most influential factors to affect mgp.
+
 - Who would use this model:
+  Automotive Engineers, Production Managers, Environmental and Regulatory teams, Data Analysts, Consumers, Dealerships
 
 
 ## 1. Target Variable
 
-- Target variable name:
-- Two class values:
-- Values are mutually exclusive and collectively exhaustive (yes/no):
-- Any unexpected or missing class values identified:
+- Target variable name: Fuel Efficiency (mpg)
+- Two class values: Fuel Efficiency (mpg) is a numerical value, class value not used in this regression model
+- Values are mutually exclusive and collectively exhaustive (yes/no): No
+- Any unexpected or missing class values identified: No missing or invalid mpg values were found. All entries contained valid numerical values.
 
 
-## 2. Positive Class Definition
+## 2. Feature Review
 
-- Positive class (label = 1):
-- Rationale for choosing this class:
-- How this affects interpretation of precision, recall, and related metrics:
-
-
-## 3. Class Distribution
-
-- Percentage of positive class:
-- Percentage of negative class:
-- Is the dataset imbalanced (yes/no):
-- If imbalanced, implications for modeling or evaluation:
+- List of available features:  Cylinders, displacement, horsepower, weight, acceleration, model year, origin
+- Any restricted or disallowed features: None
+- Possible sources of target leakage: None
+- Example of potential leakage in this scenario: None
+- How time-dependent features were handled: None
+- Any features occurring after the true outcome and how they were treated:  None
 
 
-## 4. Costs of Errors
+## 3. Evaluation Metrics
 
-- What a true positive means in this application:
-- What a false positive means:
-- What a false negative means:
-- Which error is worse for this problem and why:
-- Whether the model should prioritize sensitivity, specificity, or a balanced tradeoff:
-- Rationale for this prioritization:
-
-
-## 5. Decision Threshold
-
-- Is the default threshold of 0.5 appropriate (yes/no):
-- Why or why not:
-- Proposed threshold:
-- Rationale for chosen threshold:
-- Should the threshold be optimized for precision, recall, cost, or other factors:
-- Who determines acceptable tradeoffs (stakeholders, domain experts, policy):
+- Primary metric chosen: R²
+- Why this metric is appropriate: This metric is appropriate because it measures how much variance in mpg the model can explain.
+- Secondary metrics reported: MAE and RMSE
+- Brief discussion of these metrics: MAE shows average error in mpg, RMSE emphasizes larger errors and is widely used in regression performance evaluation
+- Use of ROC-AUC, PR-AUC, F1, or other domain-specific metrics: N/A
 
 
-## 6. Feature Review
+## 4. Baseline Performance
 
-- List of available features:
-- Any restricted or disallowed features:
-- Possible sources of target leakage:
-- Example of potential leakage in this scenario:
-- How time-dependent features were handled:
-- Any features occurring after the true outcome and how they were treated:
+- Simple mean baseline: Predicting the average mpg for all vehicles
+- Rationale for this threshold: Any regression model must beat the mean predictor to be useful
 
+## 5. Data Splitting and Validation
 
-## 7. Evaluation Metrics
-
-- Primary metric chosen:
-- Why this metric is appropriate:
-- Secondary metrics reported:
-- Brief discussion of these metrics:
-- Use of ROC-AUC, PR-AUC, F1, or other domain-specific metrics:
-- Brief explanation:
-
-
-## 8. Baseline Performance
-
-- Majority-class accuracy:
-- How majority-class accuracy was calculated:
-- Random-guess accuracy:
-- How random-guess accuracy was calculated:
-- Minimum performance required for the model to be useful:
-- Rationale for this threshold:
-
-## 9. Data Splitting and Validation
-
-- Method used (train/test split or cross-validation):
-- Rationale for chosen method:
-- Is time order relevant (yes/no):
+- Method used (train/test split or cross-validation): Train/test split (80/20 split)
+- Rationale for chosen method:  Standard method for evaluating regression models and sufficient for non-temporal data.
+- Is time order relevant (yes/no): No
 - If yes, how time-based splitting was handled:
-- Possible leakage risks across splits (duplicates, identifiers, out-of-order events):
-- How these risks were mitigated:
+- Possible leakage risks across splits (duplicates, identifiers, out-of-order events): No duplicates, no future information used
+- How these risks were mitigated:  Proper split was applied after cleaning and preprocessing
 
+## 6. Real-World Impact
 
-## 10. Real-World Impact
+- Primary users or decision-makers for this model: Automotive engineers, design teams, regulatory analysts
+- Action triggered by a positive prediction: Adjusting engine specifications, optimizing weight reduction, designing higher-efficiency models
+- Consequences of prediction errors: 
+  Poor design decisions
+  Misleading estimates of regulatory compliance
+  Incorrect consumer fuel-cost expectations
+- Any ethical concerns or additional safeguards: Minimal, but transparency in modeling assumptions is important. No human-facing risk like in medical or credit models.
 
-- Primary users or decision-makers for this model:
-- Action triggered by a positive prediction:
-- Consequences of false positives:
-- Consequences of false negatives:
-- Potential impact on people, decisions, or systems:
-- Any ethical concerns or additional safeguards:
+## 7. Final Notes
 
-
-## 11. Final Notes
-
-- Key limitations:
+- Key limitations: 
+  Strong multicollinearity among engine variables
+  Linear regression cannot fully capture non-linear relationships
+  Dataset lacks aerodynamic and drivetrain features that also affect mpg
 - Future improvements:
+  Use ridge/lasso for multicollinearity
+  Add polynomial features or interaction terms
+  Try tree-based models (Random Forest, Gradient Boosting)
 - Any open questions or assumptions:
+  How would additional features (e.g., transmission type, drag coefficient) improve predictions?
+  Would a larger or more modern dataset change model performance?

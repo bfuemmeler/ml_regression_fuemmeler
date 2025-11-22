@@ -1,20 +1,15 @@
 ##  Machine Learning Final 
 ## C:\Repos\ml_regression_fuemmeler\notebook\regression_fuemmeler.ipynb
-## 
+## Fuel Efficiency Regression Project
 
+## Objective: 
+This project applies machine learning techniques to predict vehicle fuel efficiency (mpg) based on engine specifications and vehicle attributes. Using the Auto MPG dataset, multiple regression models—including baseline linear regression, scaled pipeline regression, and polynomial regression—are evaluated and compared. The project demonstrates data cleaning, feature engineering, model training, and performance evaluation using R², MAE, and RMSE.
 
-> Use this repo to start a professional Python project.
+## Dataset
 
-- Additional instructions: See the [pro-analytics-02](https://denisecase.github.io/pro-analytics-02/) guide.
-- Project organization: [STRUCTURE](./STRUCTURE.md)
-- Build professional skills:
-  - **Environment Management**: Every project in isolation
-  - **Code Quality**: Automated checks for fewer bugs
-  - **Documentation**: Use modern project documentation tools
-  - **Testing**: Prove your code works
-  - **Version Control**: Collaborate professionally
-
----
+This project uses the Auto MPG dataset from the UCI Machine Learning Repository.  
+Features include cylinders, displacement, horsepower, weight, acceleration, model year, and origin.  
+The target variable is **fuel efficiency (mpg)**.
 
 ## About this Repository
 
@@ -40,6 +35,24 @@ https://github.com/bfuemmeler/ml_regression_fuemmeler/blob/main/peer_review.md
 README:
 https://github.com/bfuemmeler/ml_regression_fuemmeler/blob/main/README.md
 
+
+## How to Run the Notebook
+1. Clone this repository  
+2. Activate the project virtual environment  
+3. Open VS Code  
+4. Run the notebook located at: C:\Repos\ml_regression_fuemmeler\notebook\regression_fuemmeler.ipynb
+   
+## Model Results Summary
+
+| Model | R² | MAE | RMSE |
+|-------|--------|--------|--------|
+| Baseline Linear Regression | 0.727 | 3.12 | 3.83 |
+| Pipeline 1 (Scaled LR) | 0.727 | 3.12 | 3.83 |
+| Pipeline 2 (Polynomial Deg=3) | **0.781** | **2.64** | **3.43** |
+
+Polynomial Regression (degree 3) was the best-performing model.
+
+
 ## WORKFLOW 1. Set Up Machine
 
 Proper setup is critical.
@@ -47,7 +60,6 @@ Complete each step in the following guide and verify carefully.
 
 - [SET UP MACHINE](./SET_UP_MACHINE.md)
 
----
 
 ## WORKFLOW 2. Set Up Project
 
@@ -78,7 +90,6 @@ uv run python --version
 source .venv/bin/activate
 ```
 
----
 
 ## WORKFLOW 3. Daily Workflow
 
@@ -143,20 +154,13 @@ uv run mkdocs serve
 - After running the serve command, the local URL of the docs will be provided. To open the site, press **CTRL and click** the provided link (at the same time) to view the documentation. On a Mac, use **CMD and click**.
 - Press **CTRL c** (at the same time) to stop the hosting process.
 
-### 3.4 Execute
 
-In VS Code terminal, run:
+### 3.4 How to Run the Project
 
-```shell
-uv run python notebook\regression_fuemmeler.ipynb
-```
-
-A new window with charts should appear. Close the window to finish the execution. 
-If this works, your project is ready! If not, check:
-
-- Are you in the right folder? (All terminal commands are to be run from the root project folder.)
-- Did you run the full `uv sync --extra dev --extra docs --upgrade` command?
-- Are there any error messages? (ask for help with the exact error)
+1. Activate the virtual environment  
+2. Open VS Code  
+3. Open the notebook: notebook/regression_fuemmeler.ipynb
+4. Run all cells (Shift+Enter)
 
 ## Update this README as you work
 
